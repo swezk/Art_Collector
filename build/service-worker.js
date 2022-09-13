@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/FullstackAcademy/UNIV_Art_Collector_React_Starterprecache-manifest.f79810cf5a21fe36f3aed5d634675048.js"
+  "/FullstackAcademy/UNIV_Art_Collector_React_Starterprecache-manifest.f9489425c968bf61d5055ff9a53f43a1.js"
 );
 
 self.addEventListener('message', (event) => {

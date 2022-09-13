@@ -1,19 +1,15 @@
 {
   "files": {
-    "main.js": "/FullstackAcademy/UNIV_Art_Collector_React_Starterstatic/js/main.bdf734f5.chunk.js",
-    "main.js.map": "/FullstackAcademy/UNIV_Art_Collector_React_Starterstatic/js/main.bdf734f5.chunk.js.map",
+    "main.js": "/FullstackAcademy/UNIV_Art_Collector_React_Starterstatic/js/main.fd4e73c6.chunk.js",
+    "main.js.map": "/FullstackAcademy/UNIV_Art_Collector_React_Starterstatic/js/main.fd4e73c6.chunk.js.map",
     "runtime-main.js": "/FullstackAcademy/UNIV_Art_Collector_React_Starterstatic/js/runtime-main.e70f37d7.js",
     "runtime-main.js.map": "/FullstackAcademy/UNIV_Art_Collector_React_Starterstatic/js/runtime-main.e70f37d7.js.map",
-    "static/js/2.5e1fe7df.chunk.js": "/FullstackAcademy/UNIV_Art_Collector_React_Starterstatic/js/2.5e1fe7df.chunk.js",
-    "static/js/2.5e1fe7df.chunk.js.map": "/FullstackAcademy/UNIV_Art_Collector_React_Starterstatic/js/2.5e1fe7df.chunk.js.map",
     "index.html": "/FullstackAcademy/UNIV_Art_Collector_React_Starterindex.html",
-    "precache-manifest.f79810cf5a21fe36f3aed5d634675048.js": "/FullstackAcademy/UNIV_Art_Collector_React_Starterprecache-manifest.f79810cf5a21fe36f3aed5d634675048.js",
-    "service-worker.js": "/FullstackAcademy/UNIV_Art_Collector_React_Starterservice-worker.js",
-    "static/js/2.5e1fe7df.chunk.js.LICENSE.txt": "/FullstackAcademy/UNIV_Art_Collector_React_Starterstatic/js/2.5e1fe7df.chunk.js.LICENSE.txt"
+    "precache-manifest.f9489425c968bf61d5055ff9a53f43a1.js": "/FullstackAcademy/UNIV_Art_Collector_React_Starterprecache-manifest.f9489425c968bf61d5055ff9a53f43a1.js",
+    "service-worker.js": "/FullstackAcademy/UNIV_Art_Collector_React_Starterservice-worker.js"
   },
   "entrypoints": [
     "static/js/runtime-main.e70f37d7.js",
-    "static/js/2.5e1fe7df.chunk.js",
-    "static/js/main.bdf734f5.chunk.js"
+    "static/js/main.fd4e73c6.chunk.js"
   ]
 }
