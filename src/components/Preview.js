@@ -21,15 +21,15 @@ const Preview = (props) => {
    * It has to be defined inside the Preview component to have access to setIsLoading, setSearchResults, etc...
    */
   async function fetchPage(pageUrl) {
-    setIsLoading(true);
+   // setIsLoading(true);
 
     try {
       const results = await fetchQueryResultsFromURL(pageUrl);
-      setSearchResults(results);
+      //setSearchResults(results);
     } catch (error) {
       console.error(error);
     } finally {
-      setIsLoading(false);
+      //setIsLoading(false);
     }
   }
 
@@ -37,14 +37,14 @@ const Preview = (props) => {
     <header className="pagination">
       {/* This button should be disabled if nothing is set in info.prev, and should call fetchPage with info.prev when clicked */}
       <button 
-        disabled={} 
+        disabled='' 
         className="previous"
-        onClick={}>Previous</button>
+        onClick=''>Previous</button>
       {/* This button should be disabled if nothing is set in info.next, and should call fetchPage with info.next when clicked */}
       <button
-        disabled={}
+        disabled=''
         className="next"
-        onClick={}>Next</button>
+        onClick=''>Next</button>
     </header>
     <section className="results">
       {

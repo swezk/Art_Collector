@@ -9,9 +9,9 @@ import {
   fetchQueryResults
 } from '../api';
 
-const Search = (props) => {
-  // Make sure to destructure setIsLoading and setSearchResults from the props
 
+  // Make sure to destructure setIsLoading and setSearchResults from the props
+  //const {setIsLoading, setSearchResults} = props;
 
   /**
    * We are at the Search component, a child of app. This has a form, so we need to use useState for
@@ -23,8 +23,14 @@ const Search = (props) => {
    * century, setCentury (default should be the string 'any')
    * classification, setClassification (default should be the string 'any')
    */
+  const Search = ({setIsLoading, setSearchResults}) => {
 
-
+  const [centuryList, setCenturyList] = useState([])
+  const [classificationList, setClassificationList] = useState([])
+  const [queryString, setQueryString] = ('')
+  const [century, setCentury] = ('any')
+  const [classification, setClassification] = ('any')
+ 
   /**
    * Inside of useEffect, use Promise.all([]) with fetchAllCenturies and fetchAllClassifications
    * 
@@ -32,9 +38,30 @@ const Search = (props) => {
    * 
    * Make sure to console.error on caught errors from the API methods.
    */
-  useEffect(() => {
+   
+ useEffect(() => {
+ 
+  try {
+    Promise.all([
+      fetchAllCenturies(),
+      fetchAllClassifications(),
+  ])
+  .then(([fetchedCenturies, fetchedClassifications]) => {
+    setCenturyList(fetchedCenturies);
+    setClassificationList(fetchedClassifications)
+  })
+} catch (error) {
+ 
+}
+//console.log;
 
-  }, []);
+
+}, []);
+
+  
+  //.catch(error => {
+    //console.error(error.message)
+  
 
   /**
    * This is a form element, so we need to bind an onSubmit handler to it which:
@@ -52,8 +79,21 @@ const Search = (props) => {
    * 
    * finally: call setIsLoading, set it to false
    */
+  const classificationChange = (event) => {
+    setClassification(event.target.value)
+  }
   return <form id="search" onSubmit={async (event) => {
     // write code here
+    event.preventDefault()
+    setIsLoading = false
+    try {
+      let result = fetchQueryResults({ century, classification, queryString })
+      setSearchResults(fetchQueryResults)
+    }
+    catch (error) {
+      console.error(error)
+    }
+    setIsLoading = false
   }}>
     <fieldset>
       <label htmlFor="keywords">Query</label>
@@ -61,18 +101,26 @@ const Search = (props) => {
         id="keywords" 
         type="text" 
         placeholder="enter keywords..." 
-        value={/* this should be the query string */} 
-        onChange={/* this should update the value of the query string */}/>
+        value={''} 
+        onChange={''}/>
     </fieldset>
     <fieldset>
       <label htmlFor="select-classification">Classification <span className="classification-count">({ classificationList.length })</span></label>
       <select 
         name="classification"
         id="select-classification"
-        value={/* this should be the classification */} 
-        onChange={/* this should update the value of the classification */}>
+        value={classification} 
+        onChange={classificationChange/* this should update the value of the classification */}
+      >
         <option value="any">Any</option>
-        {/* map over the classificationList, return an <option /> */}
+        {/* map over the classificationList, return an <option /> */
+         classificationList.map((classification, index) => {
+          return <option
+                  value={classification.name} key={index}>{classification.name}
+                  </option>
+          })
+      }
+
       </select>
     </fieldset>
     <fieldset>
@@ -80,10 +128,17 @@ const Search = (props) => {
       <select 
         name="century" 
         id="select-century"
-        value={/* this should be the century */} 
-        onChange={/* this should update the value of the century */}>
+        value={century} 
+        onChange={''}>
         <option value="any">Any</option>
         {/* map over the centuryList, return an <option /> */}
+        {centuryList.map((century, index) => {
+           return <option
+                   value={century.name} key={index}>{century.name}
+                   </option>
+           })
+       }
+
       </select>
      </fieldset>
     <button>SEARCH</button>

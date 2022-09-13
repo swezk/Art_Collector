@@ -29,9 +29,14 @@ import { fetchQueryResultsFromTermAndValue } from '../api';
  * finally:
  *  - call setIsLoading, set it to false
  */
-const Searchable = (props) => {
-  
-}
+
+    const Searchable = ({searchTerm, searchValue, setIsLoading, setSearchResults}) => {
+ 
+       
+                  
+     }
+     
+
 
 /**
  * We need a new component called Feature which looks like this when no featuredResult is passed in as a prop:
@@ -67,8 +72,41 @@ const Searchable = (props) => {
  * 
  * This component should be exported as default.
  */
-const Feature = (props) => {
-
-}
-
+ const Feature = ({ featuredResult }) => {
+ 
+    console.log({featuredResult})
+   
+    return (
+    featuredResult ?
+   
+        <main id="feature">
+            <div className="object-feature">
+            <header>
+                <h3>{featuredResult.title}</h3>
+                <h4>{featuredResult.dated}</h4>
+            </header>
+            <section className="facts">
+                <span className="title">Culture</span>
+                <span className="content">{featuredResult.culture}</span>
+                <span className="title">Medium</span>
+                <span className="content">{featuredResult.medium}</span>
+                <span className="title">Dimensions</span>
+                <span className="content">{featuredResult.dimensions}</span>
+                <span className="title">Department</span>
+                <span className="content">{featuredResult.department}</span>
+                <span className="title">Division</span>
+                <span className="content">{featuredResult.division}</span>
+                <span className="title">Contact</span>
+                <span className="content">{featuredResult.contact}</span>
+                <span className="title">Credit</span>
+                <span className="content">{featuredResult.creditline}</span>
+            </section>
+            <section className="photos">
+                {<img src={featuredResult.primaryimageurl} alt={featuredResult.medium} />}
+            </section>
+            </div>
+        </main>
+        :
+         <main id="feature"></main>
+    )}
 export default Feature;
